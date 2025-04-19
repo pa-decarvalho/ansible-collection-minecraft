@@ -1,0 +1,24 @@
+---
+# See https://docs.ansible.com/ansible/latest/dev_guide/collections_galaxy_meta.html
+
+namespace: padecarvalho
+name: minecraft
+version: 0.0.0
+readme: README.md
+authors:
+  - PA De Carvalho <philippe.andre.decarvalho@gmail.com>
+
+description: |
+    Ansible Collection for Minecraft
+license_file: LICENSE
+tags:
+  - linux
+dependencies: {}
+
+repository: https://github.com/pa-decarvalho/ansible-collection-minecraft
+documentation: https://pa-decarvalho.github.io/ansible-collection-minecraft
+homepage: https://github.com/pa-decarvalho/ansible-collection-minecraft
+issues: https://github.com/pa-decarvalho/ansible-collection-minecraft/issues
+
+build_ignore:
+  - .gitignore

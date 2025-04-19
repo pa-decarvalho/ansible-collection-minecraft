@@ -1,0 +1,17 @@
+---
+# Project information
+site_name: Ansible Collection padecarvalho.minecraft
+site_url: https://pa-decarvalho.github.io/ansible-collection-minecraft
+site_description: Ansible Collection for Minecraft
+
+# Repository
+repo_name: minecraft
+repo_url: https://github.com/pa-decarvalho/ansible-collection-minecraft
+
+# Theme
+theme:
+  name: readthedocs
+
+# Plugins
+plugins:
+  - search

@@ -1,0 +1,49 @@
+[project]
+name = "minecraft"
+version = "0.0.0"
+description = "Ansible Collection for Minecraft"
+license = { text = "MIT" }
+authors = [
+    { name = "PA De Carvalho", email = "philippe.andre.decarvalho@gmail.com" },
+]
+maintainers = [
+    { name = "PA De Carvalho", email = "philippe.andre.decarvalho@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+]
+
+[project.urls]
+homepage = "https://github.com/pa-decarvalho/ansible-collection-minecraft"
+repository = "https://github.com/pa-decarvalho/ansible-collection-minecraft"
+documentation = "https://pa-decarvalho.github.io/ansible-collection-minecraft"
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+package-mode = false
+
+[tool.poetry.group.dev]
+optional = true
+[tool.poetry.group.dev.dependencies]
+copier = "^9.5.0"
+
+[tool.poetry.group.lint]
+optional = true
+[tool.poetry.group.lint.dependencies]
+yamllint = "^1.35.1"
+
+[tool.poetry.group.test]
+optional = true
+[tool.poetry.group.test.dependencies]
+ansible-dev-tools = "^25.4.0"
+molecule-plugins = {extras = ["docker"], version = "^23.7.0"}
+
+[tool.poetry.group.docs]
+optional = true
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

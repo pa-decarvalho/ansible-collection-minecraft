@@ -1,0 +1,14 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: PA De Carvalho
+  description: Ansible Collection for Minecraft
+  license: MIT
+  min_ansible_version: "2.18"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - ansible

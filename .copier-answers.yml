@@ -1,0 +1,13 @@
+---
+# Changes here will be overwritten by Copier
+_commit: e0c578e
+_src_path: gh:pa-decarvalho/ansible-collection-template
+author_email: philippe.andre.decarvalho@gmail.com
+author_name: PA De Carvalho
+collection_name: minecraft
+collection_namespace: padecarvalho
+description: Ansible Collection for Minecraft
+license: MIT
+mkdocs_site_url: https://pa-decarvalho.github.io/ansible-collection-minecraft
+mkdocs_theme: readthedocs
+repo_url: https://github.com/pa-decarvalho/ansible-collection-minecraft
