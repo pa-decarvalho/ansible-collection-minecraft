@@ -4,3 +4,6 @@
 
 - name: Main | Include structure.yml
   ansible.builtin.include_tasks: structure.yml
+
+- name: Main | Include download.yml
+  ansible.builtin.include_tasks: download.yml
