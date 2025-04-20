@@ -1,4 +1,9 @@
 ---
+- name: User | Create {{ minecraft_user_name }} group
+  ansible.builtin.group:
+    name: "{{ minecraft_user_name }}"
+    state: present
+
 - name: User | Create {{ minecraft_user_name }} user
   ansible.builtin.user:
     name: "{{ minecraft_user_name }}"
