@@ -1,3 +1,6 @@
 ---
 - name: Main | Include user.yml
   ansible.builtin.include_tasks: user.yml
+
+- name: Main | Include structure.yml
+  ansible.builtin.include_tasks: structure.yml

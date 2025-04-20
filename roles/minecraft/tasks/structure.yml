@@ -1,0 +1,8 @@
+---
+- name: Structure | Create base directory
+  ansible.builtin.file:
+    path: "{{ minecraft_base_directory }}"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
