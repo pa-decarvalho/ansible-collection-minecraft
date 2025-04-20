@@ -1,0 +1,5 @@
+---
+- name: User | Create {{ minecraft_user_name }} user
+  ansible.builtin.user:
+    name: "{{ minecraft_user_name }}"
+    state: present
