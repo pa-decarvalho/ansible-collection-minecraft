@@ -6,3 +6,27 @@
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0750"
+
+- name: Structure | Create server directory
+  ansible.builtin.file:
+    path: "{{ minecraft_base_directory }}/server"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
+
+- name: Structure | Create server version directory
+  ansible.builtin.file:
+    path: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
+
+- name: Structure | Create current link
+  ansible.builtin.file:
+    src: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}"
+    dest: "{{ minecraft_base_directory }}/server/current"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
