@@ -1,6 +1,6 @@
 ---
 # Changes here will be overwritten by Copier
-_commit: 0.5.0
+_commit: 0.6.0
 _src_path: gh:pa-decarvalho/ansible-collection-template
 author_email: philippe.andre.decarvalho@gmail.com
 author_name: PA De Carvalho
