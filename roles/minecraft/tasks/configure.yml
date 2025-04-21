@@ -1,0 +1,16 @@
+---
+- name: Configure | Template server.properties file
+  ansible.builtin.template:
+    src: server.properties.j2
+    dest: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}/server.properties"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"
+
+- name: Configure | Copy eula.txt file
+  ansible.builtin.copy:
+    src: eula.txt
+    dest: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}/eula.txt"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"

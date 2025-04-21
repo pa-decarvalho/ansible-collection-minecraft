@@ -11,14 +11,6 @@
     return_content: true
   register: minecraft_manifest_version
 
-- name: Test
-  ansible.builtin.debug:
-    var: minecraft_manifest_version.json.downloads.server.url
-
-- name: Test
-  ansible.builtin.debug:
-    var: minecraft_manifest_version.json.downloads.server.sha1
-
 - name: Download | Download Minecraft server
   ansible.builtin.get_url:
     url: "{{ minecraft_manifest_version.json.downloads.server.url }}"
