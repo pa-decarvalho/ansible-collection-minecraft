@@ -1,0 +1,11 @@
+[Unit]
+Description=Minecraft Server Console
+
+[Socket]
+ListenFIFO={{ minecraft_console_fifo }}
+SocketUser={{ minecraft_user_name }}
+SocketGroup={{ minecraft_user_name }}
+SocketMode=0660
+
+[Install]
+WantedBy=sockets.target

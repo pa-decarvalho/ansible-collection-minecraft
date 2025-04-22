@@ -1,0 +1,16 @@
+---
+- name: Service | Template minecraft.socket
+  ansible.builtin.template:
+    src: minecraft.socket.j2
+    dest: /etc/systemd/system/minecraft.socket
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Service | Template minecraft.service
+  ansible.builtin.template:
+    src: minecraft.service.j2
+    dest: /etc/systemd/system/minecraft.service
+    owner: root
+    group: root
+    mode: "0644"
