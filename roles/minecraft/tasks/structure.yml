@@ -7,17 +7,17 @@
     group: "{{ minecraft_user_name }}"
     mode: "0750"
 
-- name: Structure | Create server directory
+- name: Structure | Create jar directory
   ansible.builtin.file:
-    path: "{{ minecraft_base_directory }}/server"
+    path: "{{ minecraft_base_directory }}/jar"
     state: directory
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0750"
 
-- name: Structure | Create server version directory
+- name: Structure | Create jar version directory
   ansible.builtin.file:
-    path: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}"
+    path: "{{ minecraft_base_directory }}/jar/{{ minecraft_version }}"
     state: directory
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
@@ -25,8 +25,8 @@
 
 - name: Structure | Create current link
   ansible.builtin.file:
-    src: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}"
-    dest: "{{ minecraft_base_directory }}/server/current"
+    src: "{{ minecraft_base_directory }}/jar/{{ minecraft_version }}"
+    dest: "{{ minecraft_base_directory }}/jar/current"
     state: link
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"

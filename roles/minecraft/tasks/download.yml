@@ -11,10 +11,10 @@
     return_content: true
   register: minecraft_manifest_version
 
-- name: Download | Download Minecraft server
+- name: Download | Download Minecraft server jar
   ansible.builtin.get_url:
     url: "{{ minecraft_manifest_version.json.downloads.server.url }}"
-    dest: "{{ minecraft_base_directory }}/server/{{ minecraft_version }}/server.jar"
+    dest: "{{ minecraft_base_directory }}/jar/{{ minecraft_version }}/server.jar"
     checksum: "sha1:{{ minecraft_manifest_version.json.downloads.server.sha1 }}"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
