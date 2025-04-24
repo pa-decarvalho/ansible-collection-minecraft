@@ -14,3 +14,11 @@
     owner: root
     group: root
     mode: "0644"
+
+- name: Service | Start minecraft service
+  ansible.builtin.service:
+    name: minecraft
+    state: started
+
+- name: Service | Force all notified handlers to run
+  ansible.builtin.meta: flush_handlers

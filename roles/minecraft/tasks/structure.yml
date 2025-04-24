@@ -7,17 +7,17 @@
     group: "{{ minecraft_user_name }}"
     mode: "0750"
 
-- name: Structure | Create jar directory
+- name: Structure | Create directory versions
   ansible.builtin.file:
-    path: "{{ minecraft_base_directory }}/jar"
+    path: "{{ minecraft_base_directory }}/versions"
     state: directory
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0750"
 
-- name: Structure | Create jar version directory
+- name: Structure | Create directory {{ minecraft_version }}
   ansible.builtin.file:
-    path: "{{ minecraft_base_directory }}/jar/{{ minecraft_version }}"
+    path: "{{ minecraft_base_directory }}/versions/{{ minecraft_version }}"
     state: directory
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
@@ -25,8 +25,40 @@
 
 - name: Structure | Create current link
   ansible.builtin.file:
-    src: "{{ minecraft_base_directory }}/jar/{{ minecraft_version }}"
-    dest: "{{ minecraft_base_directory }}/jar/current"
+    src: "{{ minecraft_base_directory }}/versions/{{ minecraft_version }}"
+    dest: "{{ minecraft_base_directory }}/versions/current"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
+- name: Structure | Create world directory
+  ansible.builtin.file:
+    path: "{{ minecraft_base_directory }}/world"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
+
+- name: Structure | Create world link
+  ansible.builtin.file:
+    src: "{{ minecraft_base_directory }}/world"
+    dest: "{{ minecraft_base_directory }}/versions/current/world"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
+- name: Structure | Create logs directory
+  ansible.builtin.file:
+    path: "{{ minecraft_base_directory }}/logs"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
+
+- name: Structure | Create logs link
+  ansible.builtin.file:
+    src: "{{ minecraft_base_directory }}/logs"
+    dest: "{{ minecraft_base_directory }}/versions/current/logs"
     state: link
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"

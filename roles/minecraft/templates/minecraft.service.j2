@@ -8,11 +8,11 @@ Requires=minecraft.socket
 [Service]
 User={{ minecraft_user_name }}
 Group={{ minecraft_user_name }}
-WorkingDirectory={{ minecraft_base_directory }}
+WorkingDirectory={{ minecraft_base_directory }}/versions/current
 StandardInput=socket
 StandardOutput=journal
 StandardError=journal
-ExecStart=/usr/bin/java -Xms{{ minecraft_java_xms }} -Xmx{{ minecraft_java_xmx }} -jar jar/current/server.jar nogui
+ExecStart=/usr/bin/java -Xms{{ minecraft_java_xms }} -Xmx{{ minecraft_java_xmx }} -jar server.jar nogui
 ExecStop=/bin/sh -c "echo 'save-all' > {{ minecraft_console_fifo }}"
 ExecStop=/bin/sh -c "echo 'stop' > {{ minecraft_console_fifo }}"
 Restart=on-failure
