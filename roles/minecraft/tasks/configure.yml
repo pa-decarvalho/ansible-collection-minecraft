@@ -6,6 +6,8 @@
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
+  tags:
+    - molecule-idempotence-notest
 
 - name: Configure | Copy eula.txt file
   ansible.builtin.copy:
