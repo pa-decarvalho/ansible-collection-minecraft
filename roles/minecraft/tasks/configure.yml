@@ -16,3 +16,11 @@
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
+
+- name: Configure | Template whitelist.json file
+  ansible.builtin.template:
+    src: whitelist.json.j2
+    dest: "{{ minecraft_base_directory }}/versions/current/whitelist.json"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"

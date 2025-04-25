@@ -1,0 +1,8 @@
+[
+{% for item in minecraft_whitelist %}
+  {
+    "uuid": "{{ item.uuid }}",
+    "name": "{{ item.name }}"
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

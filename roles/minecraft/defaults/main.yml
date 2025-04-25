@@ -72,3 +72,6 @@ minecraft_text_filtering_version: 0
 minecraft_use_native_transport: true
 minecraft_view_distance: 10
 minecraft_white_list: false
+
+# whitelist.json
+minecraft_whitelist: []
