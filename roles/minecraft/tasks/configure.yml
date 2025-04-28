@@ -24,3 +24,59 @@
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
+
+- name: Configure | Get banned-ips.json file stats
+  ansible.builtin.stat:
+    path: "{{ minecraft_base_directory }}/versions/current/banned-ips.json"
+  register: config_banned_ips_file
+
+- name: Configure | Create banned-ips.json file
+  ansible.builtin.copy:
+    src: banned-ips.json
+    dest: "{{ minecraft_base_directory }}/versions/current/banned-ips.json"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"
+  when: not config_banned_ips_file.stat.exists
+
+- name: Configure | Get banned-players.json file stats
+  ansible.builtin.stat:
+    path: "{{ minecraft_base_directory }}/versions/current/banned-players.json"
+  register: config_banned_players_file
+
+- name: Configure | Create banned-players.json file
+  ansible.builtin.copy:
+    src: banned-players.json
+    dest: "{{ minecraft_base_directory }}/versions/current/banned-players.json"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"
+  when: not config_banned_players_file.stat.exists
+
+- name: Configure | Get ops.json file stats
+  ansible.builtin.stat:
+    path: "{{ minecraft_base_directory }}/versions/current/ops.json"
+  register: config_ops_file
+
+- name: Configure | Create ops.json file
+  ansible.builtin.copy:
+    src: ops.json
+    dest: "{{ minecraft_base_directory }}/versions/current/ops.json"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"
+  when: not config_ops_file.stat.exists
+
+- name: Configure | Get usercache.json file stats
+  ansible.builtin.stat:
+    path: "{{ minecraft_base_directory }}/versions/current/usercache.json"
+  register: config_usercache_file
+
+- name: Configure | Create usercache.json file
+  ansible.builtin.copy:
+    src: usercache.json
+    dest: "{{ minecraft_base_directory }}/versions/current/usercache.json"
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0640"
+  when: not config_usercache_file.stat.exists
