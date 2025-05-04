@@ -7,6 +7,7 @@ minecraft_current_version_folder: "{{ minecraft_versions_folder }}/{{ minecraft_
 minecraft_current_version_link: "{{ minecraft_versions_folder }}/current"
 minecraft_world_folder: "{{ minecraft_base_directory }}/{{ minecraft_level_name }}"
 minecraft_logs_folder: "{{ minecraft_base_directory }}/logs"
+minecraft_configs_folder: "{{ minecraft_base_directory }}/configs"
 
 minecraft_manifest_url: https://launchermeta.mojang.com/mc/game/version_manifest.json
 

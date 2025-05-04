@@ -2,56 +2,96 @@
 - name: Configure | Template server.properties file
   ansible.builtin.template:
     src: server.properties.j2
-    dest: "{{ minecraft_base_directory }}/versions/current/server.properties"
+    dest: "{{ minecraft_configs_folder }}/server.properties"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
   tags:
     - molecule-idempotence-notest
 
+- name: Configure | Create server.properties link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/server.properties"
+    dest: "{{ minecraft_base_directory }}/versions/current/server.properties"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
 - name: Configure | Copy eula.txt file
   ansible.builtin.copy:
     src: eula.txt
-    dest: "{{ minecraft_base_directory }}/versions/current/eula.txt"
+    dest: "{{ minecraft_configs_folder }}/eula.txt"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
+
+- name: Configure | Create eula.txt link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/eula.txt"
+    dest: "{{ minecraft_base_directory }}/versions/current/eula.txt"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
 
 - name: Configure | Template whitelist.json file
   ansible.builtin.template:
     src: whitelist.json.j2
-    dest: "{{ minecraft_base_directory }}/versions/current/whitelist.json"
+    dest: "{{ minecraft_configs_folder }}/whitelist.json"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
 
+- name: Configure | Create whitelist.json link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/whitelist.json"
+    dest: "{{ minecraft_base_directory }}/versions/current/whitelist.json"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
 - name: Configure | Get banned-ips.json file stats
   ansible.builtin.stat:
-    path: "{{ minecraft_base_directory }}/versions/current/banned-ips.json"
+    path: "{{ minecraft_configs_folder }}/banned-ips.json"
   register: config_banned_ips_file
 
 - name: Configure | Create banned-ips.json file
   ansible.builtin.copy:
     src: banned-ips.json
-    dest: "{{ minecraft_base_directory }}/versions/current/banned-ips.json"
+    dest: "{{ minecraft_configs_folder }}/banned-ips.json"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
   when: not config_banned_ips_file.stat.exists
 
+- name: Configure | Create banned-ips.json link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/banned-ips.json"
+    dest: "{{ minecraft_base_directory }}/versions/current/banned-ips.json"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
 - name: Configure | Get banned-players.json file stats
   ansible.builtin.stat:
-    path: "{{ minecraft_base_directory }}/versions/current/banned-players.json"
+    path: "{{ minecraft_configs_folder }}/banned-players.json"
   register: config_banned_players_file
 
 - name: Configure | Create banned-players.json file
   ansible.builtin.copy:
     src: banned-players.json
-    dest: "{{ minecraft_base_directory }}/versions/current/banned-players.json"
+    dest: "{{ minecraft_configs_folder }}/banned-players.json"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
   when: not config_banned_players_file.stat.exists
+
+- name: Configure | Create banned-players.json link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/banned-players.json"
+    dest: "{{ minecraft_base_directory }}/versions/current/banned-players.json"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
 
 - name: Configure | Get ops.json file stats
   ansible.builtin.stat:
@@ -61,22 +101,38 @@
 - name: Configure | Create ops.json file
   ansible.builtin.copy:
     src: ops.json
-    dest: "{{ minecraft_base_directory }}/versions/current/ops.json"
+    dest: "{{ minecraft_configs_folder }}/ops.json"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
   when: not config_ops_file.stat.exists
 
+- name: Configure | Create ops.json link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/ops.json"
+    dest: "{{ minecraft_base_directory }}/versions/current/ops.json"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+
 - name: Configure | Get usercache.json file stats
   ansible.builtin.stat:
-    path: "{{ minecraft_base_directory }}/versions/current/usercache.json"
+    path: "{{ minecraft_configs_folder }}/usercache.json"
   register: config_usercache_file
 
 - name: Configure | Create usercache.json file
   ansible.builtin.copy:
     src: usercache.json
-    dest: "{{ minecraft_base_directory }}/versions/current/usercache.json"
+    dest: "{{ minecraft_configs_folder }}/usercache.json"
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
     mode: "0640"
   when: not config_usercache_file.stat.exists
+
+- name: Configure | Create usercache.json link
+  ansible.builtin.file:
+    src: "{{ minecraft_configs_folder }}/usercache.json"
+    dest: "{{ minecraft_base_directory }}/versions/current/usercache.json"
+    state: link
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"

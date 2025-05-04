@@ -62,3 +62,11 @@
     state: link
     owner: "{{ minecraft_user_name }}"
     group: "{{ minecraft_user_name }}"
+
+- name: Structure | Create configs directory
+  ansible.builtin.file:
+    path: "{{ minecraft_configs_folder }}"
+    state: directory
+    owner: "{{ minecraft_user_name }}"
+    group: "{{ minecraft_user_name }}"
+    mode: "0750"
